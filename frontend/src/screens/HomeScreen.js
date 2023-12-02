@@ -15,11 +15,10 @@ import axios from "axios";
 
 function ProductScreen() {
   const [product, setProduct] = useState([]);
-  const productId = useParams();
 
   useEffect(() => {
     async function fetchProduct({ match }) {
-      const { data } = await axios.get(`/api/products/${productId}`);
+      const { data } = await axios.get(`/api/products/${match.id}`);
       setProduct(data);
     }
     fetchProduct();
